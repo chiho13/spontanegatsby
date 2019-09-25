@@ -8,7 +8,9 @@ import Marker from "../components/Marker";
 
 const MainPage = styled.div`
   margin-top: 40px;
-
+  .mapboxgl-map {
+    border-radius: 10px;
+}
   .map_pin {
     cursor: pointer;
   }
