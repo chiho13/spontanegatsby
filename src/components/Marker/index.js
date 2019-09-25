@@ -1,5 +1,5 @@
 import React from 'react';
-import CityPin from './Pin';
+import CityPin from './pin';
 import {Marker} from 'react-map-gl';
 
 
