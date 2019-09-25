@@ -1,21 +1,75 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import Layout from "../components/layout";
+import { Link, graphql } from "gatsby";
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import MapGL from '../components/Map';
+import styled from 'styled-components';
+import Marker from "../components/Marker";
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const MainPage = styled.div`
+  margin-top: 40px;
 
-export default IndexPage
+  .map_pin {
+    cursor: pointer;
+  }
+`;
+
+export default ({ data }) => {
+  console.log(data)
+  return (
+    <Layout>
+      <MainPage>
+        <h1>Discover</h1>
+        <MapGL viewport={{latitude:43, longitude: 9, zoom: 1}} height="500px">
+          {data && data.destinations.destinations.map(destination => {
+             const { slug, geolocation: {
+              latitude, longitude
+          }} = destination
+            return ( <Link to={slug}>
+              <Marker latitude={latitude} longitude={longitude} size={24} />
+             </Link>
+            )
+          })}
+            </MapGL>
+      </MainPage>
+    </Layout>
+  )
+}
+
+export const query = graphql`
+  query {
+    destinations {
+      destinations {
+        status
+        updatedAt
+        createdAt
+        id
+        name
+        location
+        image {
+          status
+          updatedAt
+          createdAt
+          id
+          handle
+          fileName
+          height
+          width
+          size
+          mimeType
+          attribution
+        }
+        content {
+          raw
+          html
+        }
+        geolocation {
+          latitude
+          longitude
+        }
+        slug
+        publisheddate
+      }
+    }
+  }
+`
