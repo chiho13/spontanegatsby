@@ -25,7 +25,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <MainPage>
-        <h1>Discover</h1>
+        <h1>Be Spontaneous</h1>
         <p>Click on a country to start</p>
         {/* <MapGL viewport={{latitude:43, longitude: 9, zoom: 1}} height="500px">
           {data && data.destinations.destinations.map(destination => {
