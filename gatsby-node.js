@@ -20,20 +20,35 @@ exports.createPages = async ({ graphql, actions }) => {
       destinations {
         destinations(orderBy: createdAt_DESC) {
           slug
+          country
         }
       }
     }
   `)
 
-  result.data.destinations.destinations.forEach(({ slug }) => {
+  result.data.destinations.destinations.forEach(({ slug, country }) => {
     createPage({
-      path: slug,
+      path: `${country.toLowerCase()}/${slug}`,
       component: path.resolve(`./src/templates/blog-post.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: slug,
+        country: country
       },
     })
-  })
+  });
+
+  result.data.destinations.destinations.forEach(({ slug, country }) => {
+    createPage({
+      path: country.toLowerCase(),
+      component: path.resolve(`./src/templates/country.js`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: slug,
+        country: country
+      },
+    })
+  });
 }

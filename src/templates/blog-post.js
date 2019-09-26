@@ -8,8 +8,11 @@ import { device } from "../components/breakpoint";
 import GoogleMapButton from "../components/GoogleMapsButton";
 
 const BlogTemplate = styled.div`
+    margin: 0 auto;
 
+    max-width: 1000px;
     margin-top: 40px;
+
     .mapboxgl-map, img {
         border-radius: 10px;
     }

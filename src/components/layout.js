@@ -26,17 +26,15 @@ const Layout = ({ children }) => {
   return (
     <>
       <Nav />
-      <div
-        style={{
-          margin: `0 auto`,
+      <div>
+        <main>{children}</main>
+        <footer    style={{
+          margin: `20px auto`,
           maxWidth: 1000,
           padding: `0px 1.0875rem 1.45rem`,
           paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
+        }}>
+          © {new Date().getFullYear()} Spontane - Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>

@@ -6,11 +6,11 @@ import MapGL from '../components/Map';
 import styled from 'styled-components';
 import Marker from "../components/Marker";
 
-import WorldMap from '../components/WorldMapSVG/SVGMap';
-
 const MainPage = styled.div`
-  margin-top: 40px;
-  text-align:center;
+margin: 0 auto;
+
+max-width: 1000px;
+margin-top: 40px;
   .mapboxgl-map {
     border-radius: 10px;
 }
@@ -19,35 +19,40 @@ const MainPage = styled.div`
   }
 `;
 
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1)
+  }
 
 export default ({ data }) => {
   console.log(data)
+  const firstEntry = data.destinations.destinations[0];
+
+  let title = firstEntry.country.toLowerCase();
+
   return (
     <Layout>
       <MainPage>
-        <h1>Discover</h1>
-        <p>Click on a country to start</p>
-        {/* <MapGL viewport={{latitude:43, longitude: 9, zoom: 1}} height="500px">
-          {data && data.destinations.destinations.map(destination => {
+        <h1>{title}</h1>
+        <MapGL viewport={{latitude: firstEntry.geolocation.latitude, longitude: firstEntry.geolocation.longitude, zoom: 4}} height="500px">
+          {data && data.destinations.destinations.map((destination, i) => {
              const { country, slug, geolocation: {
               latitude, longitude
           }} = destination
-            return ( <Link to={`${country.toLowerCase()}/${slug}`}>
+            return ( <Link key={i} to={`${country.toLowerCase()}/${slug}`}>
               <Marker latitude={latitude} longitude={longitude} size={24} />
              </Link>
             )
           })}
-            </MapGL> */}
-            <WorldMap />
+            </MapGL>
       </MainPage>
     </Layout>
   )
 }
 
 export const query = graphql`
-  query {
+  query($country: Destination_Country!) {
     destinations {
-      destinations {
+      destinations( where: {country: $country}) {
         status
         updatedAt
         createdAt

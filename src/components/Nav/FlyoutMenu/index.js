@@ -3,7 +3,7 @@ import styled from "styled-components"
 import BurgerIcon from "../Icons/hamburger"
 import CrossIcon from "../Icons/cross"
 import { device } from "../../breakpoint"
-import logo from "../Logo/logo"
+import Logo from "../Logo/Logo"
 import LogoImg from "../Logo"
 
 const FlyoutMenuContainer = styled.div`
@@ -221,7 +221,7 @@ const FlyoutMenu = () => {
       <SideBarMenu toggleSideBar={sidebar}>
         <CloseMenu onClick={closeSideBar}>
           <CrossIcon />
-          <logo />
+          <Logo />
         </CloseMenu>
         <FlyoutMenuLevelOne>
           <LevelOneItem><NotLink>Useful Links:</NotLink> </LevelOneItem>
