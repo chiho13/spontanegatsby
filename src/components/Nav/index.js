@@ -4,8 +4,7 @@ import FlyoutMenu from "./FlyoutMenu"
 import SearchBar from "./SearchBar"
 import Account from "./Account"
 import {device} from "../breakpoint"
-import Logo from "./Logo/Logo"
-import LogoImg from "./Logo"
+import Logo from "./Logo/logo"
 import {Link} from "gatsby"
 
 const MainNav = styled.nav `
