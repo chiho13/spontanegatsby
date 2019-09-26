@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   ComposableMap,
   ZoomableGroup,
@@ -9,23 +9,34 @@ import {
 import styled from 'styled-components';
 import worldJson from './world-50m.json';
 import {Link} from 'gatsby';
+import Searchbar from '../Nav/SearchBar';
+import { valueFromASTUntyped } from "graphql";
 
 const WrapperStyles = styled.div`
   width: 100%;
-  max-width: 980px;
+  max-width: 1200px;
   margin: 0 auto;
 `;
 
 const BasicMap = () => {
+    const [country, setCountry] = useState('');
+
+    function showCountry(country) {
+        console.log(country);
+        setCountry(country);
+    }
+
+    console.log(country);
     return (
       <WrapperStyles>
+        <h2>Discover {country}</h2>
         <ComposableMap
           projectionConfig={{
-            scale: 205,
+            scale: 250,
             rotation: [-11,0,0],
           }}
-          width={980}
-          height={551}
+          width={1250}
+          height={751}
           style={{
             width: "100%",
             height: "auto",
@@ -34,12 +45,14 @@ const BasicMap = () => {
           <ZoomableGroup center={[0,20]} disablePanning>
             <Geographies geography={worldJson}>
               {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
-                <Link to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}>
+                
+                <Link to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}    onMouseOver={() => showCountry(geography.properties.name)}>
                 <Geography
                   key={i}
-                  data-name={geography.id}
+                  data-name={geography.properties.name.toLowerCase()}
                   geography={geography}
                   projection={projection}
+               
                   style={{
                     default: {
                       fill: "#ECEFF1",
@@ -62,7 +75,8 @@ const BasicMap = () => {
                   }}
                 />
                 </Link>
-              ))}
+              )
+              )}
             </Geographies>
           </ZoomableGroup>
         </ComposableMap>

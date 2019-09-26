@@ -4,7 +4,7 @@ import BurgerIcon from "../Icons/hamburger"
 import CrossIcon from "../Icons/cross"
 import { device } from "../../breakpoint"
 import Logo from "../Logo/logo"
-import LogoImg from "../Logo"
+
 
 const FlyoutMenuContainer = styled.div`
   display: flex;
@@ -76,8 +76,9 @@ const SideBarMenu = styled.div`
 
 const CloseMenu = styled.div`
     display: flex;
-    width: 100%
+    width: 100%;
     height: 48px;
+    margin-left: 4px;
     align-items: center;
 
     @media ${device.large} {
@@ -106,10 +107,11 @@ const MenuUnderlay = styled.div`
     `}
 `
 
-const LogoContainer = styled(LogoImg)`
+const LogoContainer = styled.div`
+display: block;
   padding-right: 16px;
-  padding-left: 20px;
-`
+  padding-left: 24px;
+`;
 
 const FlyoutMenuLevelOne = styled.ul`
   display: block;
@@ -123,6 +125,7 @@ const FlyoutMenuLevelOne = styled.ul`
   margin-bottom: 0;
   transition: transform 0.3s ease;
   overflow-y: scroll;
+  margin-top: 20px;
 
   @media ${device.large} {
     display: flex;
@@ -136,6 +139,7 @@ const FlyoutMenuLevelOne = styled.ul`
     padding-right: 0;
     justify-content: flex-end;
     margin-right: 40px;
+    margin-top: 0;
   }
 `
 
@@ -176,9 +180,9 @@ const FlyoutMenuLevelOneLink = styled.a`
   background-color: #fff;
   cursor: pointer;
   display: flex;
-  padding-top: 4px;
+  padding-top: 8px;
   padding-right: 8px;
-  padding-bottom: 4px;
+  padding-bottom: 8px;
   padding-left: 16px;
   width: 100%;
   min-height: 40px;
@@ -221,7 +225,9 @@ const FlyoutMenu = () => {
       <SideBarMenu toggleSideBar={sidebar}>
         <CloseMenu onClick={closeSideBar}>
           <CrossIcon />
-          <Logo />
+          <LogoContainer>
+              <Logo />
+            </LogoContainer>
         </CloseMenu>
         <FlyoutMenuLevelOne>
           <LevelOneItem><NotLink>Useful Links:</NotLink> </LevelOneItem>

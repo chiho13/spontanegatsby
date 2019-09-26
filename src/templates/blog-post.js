@@ -9,9 +9,10 @@ import GoogleMapButton from "../components/GoogleMapsButton";
 
 const BlogTemplate = styled.div`
     margin: 0 auto;
-
     max-width: 1000px;
     margin-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     .mapboxgl-map, img {
         border-radius: 10px;
