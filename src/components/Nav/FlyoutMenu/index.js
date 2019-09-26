@@ -3,7 +3,7 @@ import styled from "styled-components"
 import BurgerIcon from "../Icons/hamburger"
 import CrossIcon from "../Icons/cross"
 import { device } from "../../breakpoint"
-import Logo from "../Logo/Logo"
+import Logo from "../Logo/logo"
 import LogoImg from "../Logo"
 
 const FlyoutMenuContainer = styled.div`
