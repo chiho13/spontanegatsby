@@ -20,8 +20,14 @@ const MainPage = styled.div`
 `;
 
 
+const WorldMapContainer = styled.div`
+
+  display: block;
+  overflow-y: scroll;
+`;
+
 export default ({ data }) => {
-  console.log(data)
+
   return (
     <Layout>
       <MainPage>
@@ -38,7 +44,9 @@ export default ({ data }) => {
             )
           })}
             </MapGL> */}
-            <WorldMap />
+            <WorldMapContainer>
+              <WorldMap />
+            </WorldMapContainer>
       </MainPage>
     </Layout>
   )

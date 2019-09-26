@@ -4,7 +4,7 @@ import FlyoutMenu from "./FlyoutMenu"
 import SearchBar from "./SearchBar"
 import Account from "./Account"
 import {device} from "../breakpoint"
-import Logo from "./Logo/logo"
+import Logo from "./Logo/Logo"
 import LogoImg from "./Logo"
 import {Link} from "gatsby"
 
@@ -33,7 +33,7 @@ const Container = styled.div `
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 999;
   background-color: #fff;
   height: 48px;
