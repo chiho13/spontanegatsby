@@ -1,11 +1,12 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/layout"
 import styled from 'styled-components';
 import MapGL from "../components/Map";
 import Marker from "../components/Marker";
 import { device } from "../components/breakpoint";
 import GoogleMapButton from "../components/GoogleMapsButton";
+import SEO from "../components/seo";
 
 const BlogTemplate = styled.div`
     margin: 0 auto;
@@ -45,6 +46,7 @@ export default ({ data }) => {
           }, image, location } = destination
           return (
             <div>
+              <SEO title={name} />
 
                  <MapGL viewport={{latitude, longitude, zoom: 8}} height="250px" mapStyle="mapbox://styles/mapbox/light-v9">
              <Marker latitude={latitude} longitude={longitude} size={48}/>

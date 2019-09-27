@@ -6,6 +6,8 @@ import MapGL from '../components/Map';
 import styled from 'styled-components';
 import Marker from "../components/Marker";
 
+import SEO from "../components/seo";
+
 import WorldMap from '../components/WorldMapSVG/SVGMap';
 
 const MainPage = styled.div`
@@ -31,6 +33,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <MainPage>
+        <SEO title="Be Spontaneous" />
         <h1>Be Spontaneous</h1>
         <p>Click on a country to start</p>
         {/* <MapGL viewport={{latitude:43, longitude: 9, zoom: 1}} height="500px">

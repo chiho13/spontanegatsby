@@ -5,6 +5,8 @@ import { Link, graphql } from "gatsby";
 import MapGL from '../components/Map';
 import styled from 'styled-components';
 import Marker from "../components/Marker";
+import SEO from "../components/seo";
+
 
 const MainPage = styled.div`
 margin: 0 auto;
@@ -34,6 +36,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <MainPage>
+        <SEO title={title} />
         <h1>{title}</h1>
         <MapGL viewport={{latitude: firstEntry.geolocation.latitude, longitude: firstEntry.geolocation.longitude, zoom: 4}} height="500px">
           {data && data.destinations.destinations.map((destination, i) => {
