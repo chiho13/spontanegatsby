@@ -15,8 +15,17 @@ const BlogTemplate = styled.div`
     padding-left: 10px;
     padding-right: 10px;
 
-    .mapboxgl-map, img {
+    
+
+    .mapboxgl-map {
         border-radius: 10px;
+        -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+    }
+
+
+    img {
+      border-radius: 10px;
+      height: auto;
     }
 `;
 
@@ -40,16 +49,16 @@ export default ({ data }) => {
   return (
     <Layout>
       <BlogTemplate>
-        {data.destinations.destinations.map(destination => {
+        {data.destinations.destinations.map((destination, i) => {
           const { name, slug, geolocation: {
               latitude, longitude
           }, image, location } = destination
           return (
-            <div>
+            <div key={i}>
               <SEO title={name} />
 
                  <MapGL viewport={{latitude, longitude, zoom: 8}} height="250px" mapStyle="mapbox://styles/mapbox/light-v9">
-             <Marker latitude={latitude} longitude={longitude} size={48}/>
+             <Marker latitude={latitude} longitude={longitude} size={40}/>
             </MapGL>
             
             <LocationContainer>

@@ -1,6 +1,8 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
+const fs = require('fs');
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `MarkdownRemark`) {
@@ -15,12 +17,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+
+  const pageData = JSON.parse(fs.readFileSync('./content/countries.json', { encoding: 'utf-8' }));
   const result = await graphql(`
     query {
       destinations {
         destinations(orderBy: createdAt_DESC) {
           slug
           country
+          countryid
         }
       }
     }
@@ -39,15 +44,25 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   });
 
-  result.data.destinations.destinations.forEach(({ slug, country }) => {
+  pageData.forEach(({country}) => {
+    createPage({
+      path: country.replace(/[.,\s]/g, '').toLowerCase(),
+      component: path.resolve(`./src/templates/country.js`),
+      context: {
+        country: country
+      }
+    });
+  });
+
+  result.data.destinations.destinations.forEach(({ slug, country, countryid }) => {  
     createPage({
       path: country.toLowerCase(),
-      component: path.resolve(`./src/templates/country.js`),
+      component: path.resolve(`./src/templates/countryWithData.js`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
         slug: slug,
-        country: country
+        countryid: countryid
       },
     })
   });

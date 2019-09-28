@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useLayoutEffect} from "react";
 import {
   ComposableMap,
   ZoomableGroup,
   Geographies,
   Geography,
 } from "react-simple-maps"
+
+import { device } from "../breakpoint"
 
 import styled from 'styled-components';
 import worldJson from './world-50m.json';
@@ -13,9 +15,15 @@ import Searchbar from '../Nav/SearchBar';
 import { valueFromASTUntyped } from "graphql";
 
 const WrapperStyles = styled.div`
+  
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto;;
+
+  @media ${device.large} {
+    width: 100%;
+  }
+
 `;
 
 const BasicMap = () => {
@@ -25,6 +33,15 @@ const BasicMap = () => {
         console.log(country);
         setCountry(country);
     }
+
+    useLayoutEffect(() => {
+
+      const base = worldJson.objects.units.geometries.map(el => {
+        return {"country": el.properties.name, "code": el.id}
+      });
+
+      console.log(JSON.stringify(base));
+    }, [])
 
     console.log(country);
     return (
@@ -46,9 +63,9 @@ const BasicMap = () => {
             <Geographies geography={worldJson}>
               {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
                 
-                <Link to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}    onMouseOver={() => showCountry(geography.properties.name)}>
+                <Link key={i} to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}    onMouseOver={() => showCountry(geography.properties.name)}>
                 <Geography
-                  key={i}
+                  
                   data-name={geography.properties.name.toLowerCase()}
                   geography={geography}
                   projection={projection}
