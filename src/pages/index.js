@@ -53,7 +53,7 @@ export default ({ data }) => {
         <p>Click on a country to start</p>
         <h2>Discover {country}</h2>
             <WorldMapContainer>
-            <MapInteractionCSS>
+            <MapInteractionCSS minScale={1} maxScale={4}>
               <WorldMap changeCountry={changeCountry}/>
               </MapInteractionCSS>
             </WorldMapContainer>
