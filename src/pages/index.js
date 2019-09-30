@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useMemo} from "react";
 import Layout from "../components/layout";
 import { Link, graphql } from "gatsby";
 
@@ -39,6 +39,7 @@ const WorldMapContainer = styled.div`
 `;
 
 export default ({ data }) => {
+
   const [country, setCountry] = useState("");
 
   function changeCountry(val) {
@@ -49,12 +50,13 @@ export default ({ data }) => {
     <Layout>
       <MainPage>
         <SEO title="Be Spontaneous" />
-        <h1>Be Spontaneous</h1>
-        <p>Click on a country to start</p>
+        <h1>My Spontaneous Trips</h1>
+        <em>(highlighted green)</em>
+        <p>or click on another country for more info</p>
         <h2>Discover {country}</h2>
             <WorldMapContainer>
             <MapInteractionCSS minScale={1} maxScale={4}>
-              <WorldMap changeCountry={changeCountry}/>
+              <WorldMap changeCountry={changeCountry} data={data.destinations.destinations.map(el => el.countryid)}/>
               </MapInteractionCSS>
             </WorldMapContainer>
       </MainPage>
@@ -66,36 +68,7 @@ export const query = graphql`
   query {
     destinations {
       destinations {
-        status
-        updatedAt
-        createdAt
-        id
-        name
-        location
-        image {
-          status
-          updatedAt
-          createdAt
-          id
-          handle
-          fileName
-          height
-          width
-          size
-          mimeType
-          attribution
-        }
-        content {
-          raw
-          html
-        }
-        geolocation {
-          latitude
-          longitude
-        }
-        country
-        slug
-        publisheddate
+        countryid
       }
     }
   }

@@ -23,7 +23,20 @@ const WrapperStyles = styled.div`
   @media ${device.large} {
     width: 100%;
   }
+`;
 
+
+const CountryLink = styled(Link)`
+    fill: ${props => props.havebeen === "true" ? "#81c784" : "#ECEFF1"};
+    stroke: #607D8B;
+    stroke-width: 0.75;
+    outline: none;
+
+    &:hover, &:focus {
+      fill: #007bff;
+      stroke: #007bff;
+      transition: "all 0.2s ease";
+    }
 `;
 
 const BasicMap = (props) => {
@@ -50,36 +63,36 @@ const BasicMap = (props) => {
             <Geographies geography={worldJson}>
               {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
                 
-                <Link key={i} to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}    onMouseOver={() => onMouseOverCountry(geography.properties.name)}>
+                <CountryLink havebeen={props.data.includes(geography.id).toString()} key={i} to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}    onMouseOver={() => onMouseOverCountry(geography.properties.name)}>
                 <Geography
                   
                   data-name={geography.properties.name.toLowerCase()}
                   geography={geography}
                   projection={projection}
                
-                  style={{
-                    default: {
-                      fill: "#ECEFF1",
-                      stroke: "#607D8B",
-                      strokeWidth: 0.75,
-                      outline: "none",
-                    },
-                    hover: {
-                      fill: "#007bff",
-                      stroke: "#007bff",
-                      transition: "all 0.2s ease",
-                      strokeWidth: 0.75,
-                      outline: "none",
-                    },
-                    pressed: {
-                      fill: "#0066d3",
-                      stroke: "#607D8B",
-                      strokeWidth: 0.75,
-                      outline: "none",
-                    },
-                  }}
+                  // style={{
+                  //   default: {
+                  //     fill: #ECEFF1",
+                  //     stroke: "#607D8B",
+                  //     strokeWidth: 0.75,
+                  //     outline: "none",
+                  //   },
+                  //   hover: {
+                  //     fill: "#007bff",
+                  //     stroke: "#007bff",
+                  //     transition: "all 0.2s ease",
+                  //     strokeWidth: 0.75,
+                  //     outline: "none",
+                  //   },
+                  //   pressed: {
+                  //     fill: "#0066d3",
+                  //     stroke: "#607D8B",
+                  //     strokeWidth: 0.75,
+                  //     outline: "none",
+                  //   },
+                  // }}
                 />
-                </Link>
+                </CountryLink>
               )
               )}
             </Geographies>
