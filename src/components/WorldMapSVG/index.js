@@ -26,8 +26,8 @@ const WrapperStyles = styled.div`
 
 
 const CountryLink = styled(Link)`
-    fill: ${props => props.havebeen === "true" ? "#81c784" : "#ECEFF1"};
-    stroke: #607D8B;
+    fill: ${props => props.havebeen === "true" ? "#4caf50" : "#ECEFF1"};
+    stroke: ${props => props.havebeen === "true" ? "#4caf50" : "#607D8B" };
     stroke-width: 0.75;
     outline: none;
     
