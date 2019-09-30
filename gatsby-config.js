@@ -52,5 +52,11 @@ module.exports = {
           "https://api-euwest.graphcms.com/v1/ck0xz9ity44kb01gm8sbjhymb/master",
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-149129879-1",
+      },
+    },
   ],
 }
