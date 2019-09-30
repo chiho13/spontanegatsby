@@ -31,10 +31,12 @@ const CountryLink = styled(Link)`
     stroke-width: 0.75;
     outline: none;
 
-    &:hover, &:focus {
-      fill: #007bff;
-      stroke: #007bff;
-      transition: "all 0.2s ease";
+    @media ${device.large} {
+      &:hover, &:focus {
+        fill: #007bff;
+        stroke: #007bff;
+        transition: "all 0.2s ease";
+      }
     }
 `;
 

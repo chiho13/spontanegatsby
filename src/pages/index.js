@@ -63,10 +63,10 @@ export default ({ data }) => {
         <SEO title="My Spontaneous Trips" />
         <h1>My Spontaneous Trips</h1>
         <em>(highlighted green)</em>
-        <p>or click on another country for more</p>
+        <p>or click on another country for more info</p>
         <h2>Discover <DiscoverLink to={country.replace(/[.,\s]/g, '').toLowerCase()} >{country}</DiscoverLink></h2>
             <WorldMapContainer>
-            <MapInteractionCSS minScale={1} maxScale={4}>
+            <MapInteractionCSS minScale={1} maxScale={8}>
               <WorldMap changeCountry={changeCountry} data={data.destinations.destinations.map(el => el.countryid)}/>
               </MapInteractionCSS>
             </WorldMapContainer>
