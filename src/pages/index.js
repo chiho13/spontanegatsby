@@ -38,6 +38,17 @@ const WorldMapContainer = styled.div`
   }
 `;
 
+const DiscoverLink = styled(Link)`
+  color: #007bff;
+
+  @media ${device.xlarge} {
+    margin: 0 auto;
+    color: #000;
+    text-decoration: none;
+    pointer-events: none;
+  }
+`;
+
 export default ({ data }) => {
 
   const [country, setCountry] = useState("");
@@ -53,7 +64,7 @@ export default ({ data }) => {
         <h1>My Spontaneous Trips</h1>
         <em>(highlighted green)</em>
         <p>or click on another country for more</p>
-        <h2>Discover {country}</h2>
+        <h2>Discover <DiscoverLink to={country.replace(/[.,\s]/g, '').toLowerCase()} >{country}</DiscoverLink></h2>
             <WorldMapContainer>
             <MapInteractionCSS minScale={1} maxScale={4}>
               <WorldMap changeCountry={changeCountry} data={data.destinations.destinations.map(el => el.countryid)}/>

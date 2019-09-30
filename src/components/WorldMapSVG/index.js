@@ -49,7 +49,7 @@ const BasicMap = (props) => {
     }
 
     function onTouchEvent(val) {
-      navigate(val);
+      props.changeCountry(val);
     }
     
     return (
@@ -73,7 +73,7 @@ const BasicMap = (props) => {
                 <CountryLink havebeen={props.data.includes(geography.id).toString()} key={i} to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}   onTouchEnd={(e) => {
                   e.preventDefault();
                   e.currentTarget.focus();
-                  onTouchEvent(geography.properties.name.replace(/[.,\s]/g, '').toLowerCase());
+                  onTouchEvent(geography.properties.name);
                 }} onMouseLeave={onMouseOut} onMouseOver={() => onMouseOverCountry(geography.properties.name)}>
                 <Geography
                   
@@ -81,27 +81,6 @@ const BasicMap = (props) => {
                   geography={geography}
                   projection={projection}
                
-                  // style={{
-                  //   default: {
-                  //     fill: #ECEFF1",
-                  //     stroke: "#607D8B",
-                  //     strokeWidth: 0.75,
-                  //     outline: "none",
-                  //   },
-                  //   hover: {
-                  //     fill: "#007bff",
-                  //     stroke: "#007bff",
-                  //     transition: "all 0.2s ease",
-                  //     strokeWidth: 0.75,
-                  //     outline: "none",
-                  //   },
-                  //   pressed: {
-                  //     fill: "#0066d3",
-                  //     stroke: "#607D8B",
-                  //     strokeWidth: 0.75,
-                  //     outline: "none",
-                  //   },
-                  // }}
                 />
                 </CountryLink>
               )
