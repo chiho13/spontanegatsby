@@ -1,4 +1,4 @@
-import React, {useState, useLayoutEffect} from "react";
+import React from "react";
 import {
   ComposableMap,
   ZoomableGroup,
@@ -26,30 +26,17 @@ const WrapperStyles = styled.div`
 
 `;
 
-const BasicMap = () => {
-    const [country, setCountry] = useState('');
+const BasicMap = (props) => {
 
-    function showCountry(country) {
-        console.log(country);
-        setCountry(country);
+    function onMouseOverCountry(val) {
+      props.changeCountry(val);
     }
 
-    useLayoutEffect(() => {
-
-      const base = worldJson.objects.units.geometries.map(el => {
-        return {"country": el.properties.name, "code": el.id}
-      });
-
-      console.log(JSON.stringify(base));
-    }, [])
-
-    console.log(country);
     return (
       <WrapperStyles>
-        <h2>Discover {country}</h2>
         <ComposableMap
           projectionConfig={{
-            scale: 250,
+            scale: 260,
             rotation: [-11,0,0],
           }}
           width={1250}
@@ -63,7 +50,7 @@ const BasicMap = () => {
             <Geographies geography={worldJson}>
               {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
                 
-                <Link key={i} to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}    onMouseOver={() => showCountry(geography.properties.name)}>
+                <Link key={i} to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}    onMouseOver={() => onMouseOverCountry(geography.properties.name)}>
                 <Geography
                   
                   data-name={geography.properties.name.toLowerCase()}
@@ -80,6 +67,7 @@ const BasicMap = () => {
                     hover: {
                       fill: "#007bff",
                       stroke: "#007bff",
+                      transition: "all 0.2s ease",
                       strokeWidth: 0.75,
                       outline: "none",
                     },

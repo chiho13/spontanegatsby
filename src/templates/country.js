@@ -53,7 +53,7 @@ export default (props) => {
       <MainPage>
         <SEO title={country} />
         <h1>{country}</h1>
-        <p>I haven't been but you can. Get your guide <a style={{ color: '#007bff'}}href={`https://wikitravel.org/en/${country}`}>here</a></p>
+        <p>I haven't been, but you can. Get your guide <a style={{ color: '#007bff'}}href={`https://wikitravel.org/en/${country}`}>here</a></p>
           {geoLocation &&  <MapGL height="500px" viewport={{latitude: geoLocation.lat, longitude: geoLocation.lng}} zoom={4}>
           <a href={`http://maps.google.com/?q=${country} country`} target="_blank"> <Marker latitude={geoLocation.lat} longitude={geoLocation.lng} size={40} /></a>
           </MapGL>}
