@@ -10,9 +10,8 @@ import { device } from "../breakpoint"
 
 import styled from 'styled-components';
 import worldJson from './world-50m.json';
-import {Link} from 'gatsby';
-import Searchbar from '../Nav/SearchBar';
-import { valueFromASTUntyped } from "graphql";
+import {Link, navigate} from 'gatsby';
+
 
 const WrapperStyles = styled.div`
   
@@ -45,6 +44,14 @@ const BasicMap = (props) => {
       props.changeCountry(val);
     }
 
+    function onMouseOut() {
+      props.changeCountry("");
+    }
+
+    function onTouchEvent(val) {
+      navigate(val);
+    }
+    
     return (
       <WrapperStyles>
         <ComposableMap
@@ -63,7 +70,11 @@ const BasicMap = (props) => {
             <Geographies geography={worldJson}>
               {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
                 
-                <CountryLink havebeen={props.data.includes(geography.id).toString()} key={i} to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}    onMouseOver={() => onMouseOverCountry(geography.properties.name)}>
+                <CountryLink havebeen={props.data.includes(geography.id).toString()} key={i} to={geography.properties.name.replace(/[.,\s]/g, '').toLowerCase()}   onTouchEnd={(e) => {
+                  e.preventDefault();
+                  e.currentTarget.focus();
+                  onTouchEvent(geography.properties.name.replace(/[.,\s]/g, '').toLowerCase());
+                }} onMouseLeave={onMouseOut} onMouseOver={() => onMouseOverCountry(geography.properties.name)}>
                 <Geography
                   
                   data-name={geography.properties.name.toLowerCase()}

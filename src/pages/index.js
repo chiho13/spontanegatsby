@@ -49,10 +49,10 @@ export default ({ data }) => {
   return (
     <Layout>
       <MainPage>
-        <SEO title="Be Spontaneous" />
+        <SEO title="My Spontaneous Trips" />
         <h1>My Spontaneous Trips</h1>
         <em>(highlighted green)</em>
-        <p>or click on another country for more info</p>
+        <p>or click on another country for more</p>
         <h2>Discover {country}</h2>
             <WorldMapContainer>
             <MapInteractionCSS minScale={1} maxScale={4}>
