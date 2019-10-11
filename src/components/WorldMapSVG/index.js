@@ -67,7 +67,7 @@ const BasicMap = (props) => {
             height: "auto",
           }}
           >
-          <ZoomableGroup center={[0,20]} disablePanning>
+          <ZoomableGroup center={[0,25]} disablePanning>
             <Geographies geography={worldJson}>
               {(geographies, projection) => geographies.map((geography, i) => geography.id !== "ATA" && (
                 
