@@ -66,7 +66,7 @@ export default ({ data }) => {
       <MainPage>
         <SEO title="My Spontaneous Trips" />
         <h1>My Spontaneous Trips</h1>
-        <em>(highlighted green)</em>
+        <em>(highlighted red)</em>
         <p>or click on another country for more info</p>
         <h2>Discover <DiscoverLink to={country.replace(/[.,\s]/g, '').toLowerCase()} >{country}</DiscoverLink></h2>
             <WorldMapContainer>
