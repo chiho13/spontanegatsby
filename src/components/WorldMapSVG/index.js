@@ -26,14 +26,14 @@ const WrapperStyles = styled.div`
 
 
 const CountryLink = styled(Link)`
-    fill: ${props => props.havebeen === "true" ? "#4caf50" : "#ECEFF1"};
-    stroke: ${props => props.havebeen === "true" ? "#4caf50" : "#607D8B" };
+    fill: ${props => props.havebeen === "true" ? "crimson" : "bisque"};
+    stroke: ${props => props.havebeen === "true" ? "black" : "darkred" };
     stroke-width: 0.75;
     outline: none;
     
     &:hover, &:focus {
-      fill: #007bff;
-      stroke: #007bff;
+      fill: darksalmon;
+      stroke: darkred;
       transition: "all 0.2s ease";
     }
 `;
@@ -56,11 +56,11 @@ const BasicMap = (props) => {
       <WrapperStyles>
         <ComposableMap
           projectionConfig={{
-            scale: 260,
+            scale: 250,
             rotation: [-11,0,0],
           }}
           width={1250}
-          height={751}
+          height={850}
           style={{
             width: "100%",
             height: "auto",

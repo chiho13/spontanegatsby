@@ -11,6 +11,7 @@ import { MapInteractionCSS } from 'react-map-interaction';
 
 import WorldMap from '../components/WorldMapSVG';
 import { device } from "../components/breakpoint";
+import oldpaper from '../images/old-paper.jpg';
 
 const MainPage = styled.div`
   margin-top: 40px;
@@ -30,8 +31,11 @@ const WorldMapContainer = styled.div`
   overflow-y: scroll;
   max-width: 1180px;
   margin: 0 20px;
-  border: 1px solid #bbb;
-  border-radius: 10px;
+  background-image: url(${oldpaper});
+  background-size: cover;         
+  background-repeat: no-repeat;
+  background-position: center center; 
+  border-radius: 50%;
 
   @media ${device.xlarge} {
     margin: 0 auto;
