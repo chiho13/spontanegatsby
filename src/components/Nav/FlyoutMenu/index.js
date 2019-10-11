@@ -156,9 +156,9 @@ const LevelOneItem = styled.li`
 `
 
 const NotLink = styled.span`
-font-family: Helvetica;
-font-weight: 400;
-font-size: 16px;
+font-family: 'Nunito', sans-serif;
+font-weight: 600;
+font-size: 18px;
 display: flex;
 padding-top: 4px;
 padding-right: 8px;
@@ -170,9 +170,9 @@ text-decoration: none;
 `;
 
 const FlyoutMenuLevelOneLink = styled.a`
-  font-family: Helvetica;
-  font-weight: 400;
-  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
   line-height: 1.5rem;
   color: #1a1a1a;
   text-transform: none;

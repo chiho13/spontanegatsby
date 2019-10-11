@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Nav from "./Nav"
 import "./layout.css"
 
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {

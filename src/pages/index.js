@@ -11,7 +11,7 @@ import { MapInteractionCSS } from 'react-map-interaction';
 
 import WorldMap from '../components/WorldMapSVG';
 import { device } from "../components/breakpoint";
-import oldpaper from '../images/old-paper.jpg';
+import oldpaper from '../images/old-paper.png';
 
 const MainPage = styled.div`
   margin-top: 40px;
@@ -24,28 +24,69 @@ const MainPage = styled.div`
   }
 `;
 
+const HeaderContainer = styled.div`
+
+  @media ${device.large} {
+    margin-bottom: 40px
+  }
+`;
+
+const MainHeader = styled.div`
+font-family: 'Rock Salt', cursive;
+font-size: 25px;
+margin-bottom: 20px;
+color: #007BFF;
+line-height: 1.5;
+
+@media ${device.large} {
+  font-size: 40px;
+}
+`;
 
 const WorldMapContainer = styled.div`
 
   display: block;
   overflow-y: scroll;
   max-width: 1180px;
-  margin: 0 20px;
   background-image: url(${oldpaper});
   background-size: cover;         
   background-repeat: no-repeat;
   background-position: center center; 
-  border-radius: 50%;
+  padding: 20px; 
 
   @media ${device.xlarge} {
     margin: 0 auto;
   }
 `;
 
+const DiscoverHeader = styled.h2`
+  font-family: "Freebooter Italic";
+  font-size: 36px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #111;
+
+  @media ${device.large} {
+    position: absolute;
+    left: 0;
+    right: 0;
+    font-size: 42px;
+    text-shadow: 1px 1px #E8B977;
+    margin-top: 60px;
+  }
+
+`;
+
+const Highlightext = styled.div`
+font-family: 'Nunito', sans-serif;
+font-style: italic;
+font-size: 16px;
+`;
+
 const DiscoverLink = styled(Link)`
   color: #007bff;
 
-  @media ${device.xlarge} {
+  @media ${device.large} {
     margin: 0 auto;
     color: #000;
     text-decoration: none;
@@ -65,10 +106,12 @@ export default ({ data }) => {
     <Layout>
       <MainPage>
         <SEO title="My Spontaneous Trips" />
-        <h1>My Spontaneous Trips</h1>
-        <em>(highlighted red)</em>
-        <p>or click on another country for more info</p>
-        <h2>Discover <DiscoverLink to={country.replace(/[.,\s]/g, '').toLowerCase()} >{country}</DiscoverLink></h2>
+
+        <HeaderContainer>
+          <MainHeader>My Spontaneous Trips</MainHeader>
+          <Highlightext>(red countries are places I've been)</Highlightext>
+        </HeaderContainer>
+        <DiscoverHeader>Discover <DiscoverLink to={country.replace(/[.,\s]/g, '').toLowerCase()} >{country}</DiscoverLink></DiscoverHeader>
             <WorldMapContainer>
             <MapInteractionCSS minScale={1} maxScale={8}>
               <WorldMap changeCountry={changeCountry} data={data.destinations.destinations.map(el => el.countryid)}/>
