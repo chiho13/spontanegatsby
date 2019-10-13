@@ -24,7 +24,9 @@ const BlogTemplate = styled.div`
 
 
     img {
+      display: block;
       border-radius: 10px;
+      margin: 0 auto;
       height: auto;
     }
 `;
