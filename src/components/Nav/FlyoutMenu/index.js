@@ -177,7 +177,6 @@ const FlyoutMenuLevelOneLink = styled.a`
   color: #1a1a1a;
   text-transform: none;
   letter-spacing: 0.2px;
-  background-color: #fff;
   cursor: pointer;
   display: flex;
   padding-top: 8px;
@@ -191,16 +190,17 @@ const FlyoutMenuLevelOneLink = styled.a`
   text-decoration: none;
   justify-content: space-between;
   color: #4d4f53;
+  cursor: pointer;
 
   &:focus {
-    background-color: #f2f2f2;
+    background-color: #f1f1f1;
   }
 
   @media ${device.large} {
     margin-left: 4px;
     margin-right: 4px;
     &:hover {
-      background-color: #f2f2f2;
+      background-color: #f1f1f1;
     }
   }
 `

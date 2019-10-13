@@ -34,7 +34,6 @@ const Container = styled.div `
   left: 0;
   width: 100vw;
   z-index: 999;
-  background-color: #fff;
   height: 48px;
   max-width: 1440px;
   margin-left: auto;
@@ -42,6 +41,7 @@ const Container = styled.div `
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #ccc;
+  background-color: #fff;
 
   @media ${device.large} {
     display: flex;
@@ -56,7 +56,6 @@ const Container = styled.div `
     margin-top: 0;
     border-bottom-width: 0;
     box-sizing: border-box;
-    background-color: #fff;
     position: relative;
     height: 100%;
   }

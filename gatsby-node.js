@@ -44,12 +44,13 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   });
 
-  pageData.forEach(({country}) => {
+  pageData.forEach(({country, code}) => {
     createPage({
       path: country.replace(/[.,\s]/g, '').toLowerCase(),
       component: path.resolve(`./src/templates/country.js`),
       context: {
-        country: country
+        country,
+        code
       }
     });
   });
