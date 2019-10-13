@@ -74,8 +74,11 @@ font-family: "Nunito";
     left: 0;
     right: 0;
     font-size: 42px;
-    text-shadow: 1px 1px #E8B977;
+    text-shadow: 1px 1px #333;
     margin-top: 60px;
+    z-index: 100;
+    color: #fff;
+
   }
 
 `;
@@ -91,7 +94,7 @@ const DiscoverLink = styled(Link)`
 
   @media ${device.large} {
     margin: 0 auto;
-    color: #000;
+    color: #fff;
     text-decoration: none;
     pointer-events: none;
   }
@@ -116,7 +119,7 @@ export default ({ data }) => {
         </HeaderContainer>
         <DiscoverHeader>Discover <DiscoverLink to={country.replace(/[.,\s]/g, '').toLowerCase()} >{country}</DiscoverLink></DiscoverHeader>
             <WorldMapContainer>
-            <MapInteractionCSS minScale={1} maxScale={8}>
+            <MapInteractionCSS minScale={1} maxScale={20}>
               <WorldMap changeCountry={changeCountry} data={data.destinations.destinations.map(el => el.countryid)}/>
               </MapInteractionCSS>
             </WorldMapContainer>

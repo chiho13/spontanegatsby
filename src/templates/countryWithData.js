@@ -34,7 +34,7 @@ export const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   h1 {
     margin-top: 30px;
   }
@@ -73,9 +73,12 @@ export const DetailsContainer = styled.div`
   width: 100%;
 
   @media ${device.xsmall} {
+    display: flex;
+    align-items: center;
     width: auto;
   }
 `;
+
 
 
 export const GetGuideButton = styled.a`
@@ -104,15 +107,21 @@ export const GetGuideButton = styled.a`
   }
 `;
 
+export const SummaryInfo = styled.div`
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 30px;
+`;
+
 
 String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1)
   }
 
 export default ({ data }) => {
-  console.log(data)
   const firstEntry = data.destinations.destinations[0];
   const [countryData, setCountryData] = useState(null);
+  const [extract, setExtract] = useState(null);
 
   let title = firstEntry.country.toLowerCase();
 
@@ -122,7 +131,11 @@ export default ({ data }) => {
   
       const restCountries = await axios.get(`https://restcountries.eu/rest/v2/alpha/${firstEntry.countryid}`);
       const restCountryData = restCountries.data;
-      console.log(restCountryData);
+
+      const getExtract = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${title}`);
+
+      const extractData = getExtract.data.extract;
+      setExtract(extractData);
 
       setCountryData(restCountryData);
     }
@@ -138,6 +151,7 @@ export default ({ data }) => {
          <FlexContainer>
         <img src={countryData.flag} />
           <DetailsContainer>
+            <div>
           <h1>{countryData.name}</h1>
           <h4>
             Capital City: {countryData.capital}
@@ -145,8 +159,13 @@ export default ({ data }) => {
           <h4>
             Population: {String(countryData.population).replace(/(.)(?=(\d{3})+$)/g,'$1,')}
           </h4>
+          </div>
           </DetailsContainer>
         </FlexContainer> 
+
+        <SummaryInfo>
+          <p>{extract && extract}</p>
+        </SummaryInfo>
         <GetGuideButton href={`https://wikitravel.org/en/${title}`}>Get your guide</GetGuideButton>
 
         <h4>These are the few places I've been</h4>

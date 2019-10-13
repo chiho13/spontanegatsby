@@ -27,13 +27,13 @@ const WrapperStyles = styled.div`
 
 const CountryLink = styled(Link)`
     fill: ${props => props.havebeen === "true" ? "#F2171A" : "#2F1006"};
-    stroke: ${props => props.havebeen === "true" ? "black" : "#BE854E" };
-    stroke-width: 0.75;
+    stroke: ${props => props.havebeen === "true" ? "black" : "#E4CDB6" };
+    stroke-width: 0.2;
     outline: none;
     cursor: pointer;
     
     &:hover, &:focus {
-      fill: #ea9f27;
+      fill: #E4CDB6;
       stroke: #2F1006;
       transition: all 0.2s ease;
     }
