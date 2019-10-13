@@ -52,21 +52,24 @@ const WorldMapContainer = styled.div`
   background-size: cover;         
   background-repeat: no-repeat;
   background-position: center center; 
-  padding: 20px; 
+  padding: 5px;
+  margin: 5px; 
 
   @media ${device.xlarge} {
     margin: 0 auto;
+    padding: 20px; 
   }
 `;
 
 const DiscoverHeader = styled.h2`
-  font-family: "Freebooter Italic";
-  font-size: 36px;
+font-family: "Nunito";
+  font-size: 28px;
   margin-top: 10px;
   margin-bottom: 10px;
   color: #111;
 
   @media ${device.large} {
+    font-family: "Freebooter Italic";
     position: absolute;
     left: 0;
     right: 0;
