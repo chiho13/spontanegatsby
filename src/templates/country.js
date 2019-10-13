@@ -18,8 +18,8 @@ import LoadingPlane from '../components/LoadingPlane';
 
 const MainPage = styled.div`
 margin: 0 auto;
-padding-left: 10px;
-padding-right: 10px;
+padding-left: 20px;
+padding-right: 20px;
 
 max-width: 1000px;
 margin-top: 40px;
@@ -57,7 +57,6 @@ export default (props) => {
       const extractData = getExtract.data.extract;
       setExtract(extractData);
 
-
       setCountryData(restCountryData);
       setGeoLocation(geo);
     }
@@ -94,7 +93,7 @@ export default (props) => {
         <p>I haven't been, but you can.</p>
         <GetGuideButton href={`https://en.wikivoyage.org/wiki/${country}`} target="_blank">Get your guide</GetGuideButton>
 
-        {geoLocation && <MapGL height="500px" viewport={{ latitude: geoLocation.lat, longitude: geoLocation.lng }} zoom={4}>
+        {geoLocation && <MapGL height={350} viewport={{ latitude: geoLocation.lat, longitude: geoLocation.lng }} zoom={4}>
           <a href={`http://maps.google.com/?q=${country} country`} target="_blank"> <Marker latitude={geoLocation.lat} longitude={geoLocation.lng} size={40} /></a>
         </MapGL>}
 
