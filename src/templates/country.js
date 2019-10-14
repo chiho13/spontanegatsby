@@ -14,7 +14,7 @@ import { SummaryInfo } from './countryWithData';
 
 import { GetGuideButton } from './countryWithData';
 import LoadingPlane from '../components/LoadingPlane';
-
+import countryExtract from '../../content/countryData.json';
 
 const MainPage = styled.div`
 margin: 0 auto;
@@ -52,13 +52,13 @@ export default (props) => {
       const geo = data.data.results[0].geometry;
       const restCountries = await axios.get(`https://restcountries.eu/rest/v2/alpha/${alphaCode}`);
       const restCountryData = restCountries.data;
-      const getExtract = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${country}`);
 
-      const extractData = getExtract.data.extract;
+      const extractData = countryExtract[alphaCode].extract;
       setExtract(extractData);
 
       setCountryData(restCountryData);
       setGeoLocation(geo);
+     
     }
 
     fetchData();

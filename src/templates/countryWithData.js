@@ -9,6 +9,7 @@ import SEO from "../components/seo";
 import axios from 'axios';
 import { device } from '../components/breakpoint';
 import LoadingPlane from '../components/LoadingPlane';
+import countryExtract from '../../content/countryData.json';
 
 const MainPage = styled.div`
 margin: 0 auto;
@@ -124,7 +125,7 @@ export default ({ data }) => {
   const [extract, setExtract] = useState(null);
 
   let title = firstEntry.country.toLowerCase();
-
+  let alphaCode = firstEntry.countryid;
   useEffect(() => {
     console.log(firstEntry);
     async function fetchData() {
@@ -132,9 +133,7 @@ export default ({ data }) => {
       const restCountries = await axios.get(`https://restcountries.eu/rest/v2/alpha/${firstEntry.countryid}`);
       const restCountryData = restCountries.data;
 
-      const getExtract = await axios.get(`https://en.wikipedia.org/api/rest_v1/page/summary/${title}`);
-
-      const extractData = getExtract.data.extract;
+      const extractData = countryExtract[alphaCode].extract;
       setExtract(extractData);
 
       setCountryData(restCountryData);
