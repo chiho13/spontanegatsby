@@ -79,9 +79,6 @@ export default (props) => {
               <h4>
                 Capital City: {countryData.capital}
               </h4>
-              <h4>
-                Population: {String(countryData.population).replace(/(.)(?=(\d{3})+$)/g, '$1,')}
-              </h4>
             </div>
           </DetailsContainer>
         </FlexContainer>
