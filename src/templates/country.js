@@ -84,7 +84,9 @@ export default (props) => {
         </FlexContainer>
 
         <SummaryInfo>
-          <p>{extract && extract}</p>
+          <p>
+          <div dangerouslySetInnerHTML={{ __html: extract && extract}} />
+          </p>
         </SummaryInfo>
 
         <p>I haven't been, but you can.</p>

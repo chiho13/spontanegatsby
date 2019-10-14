@@ -163,7 +163,9 @@ export default ({ data }) => {
         </FlexContainer> 
 
         <SummaryInfo>
-          <p>{extract && extract}</p>
+          <p>
+          <div dangerouslySetInnerHTML={{ __html: extract && extract}} />
+          </p>
         </SummaryInfo>
         <GetGuideButton href={`https://wikitravel.org/en/${title}`}>Get your guide</GetGuideButton>
 

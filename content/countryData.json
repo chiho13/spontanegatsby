@@ -413,7 +413,7 @@
     },
     "CHN": {
         "country": "China",
-        "extract": "China, officially the People's Republic of China (PRC), is a country in East Asia and the world's most populous country, with a population of around 1.404 billion in 2017. Covering approximately 9,600,000 square kilometers (3,700,000 sq mi), it is the third or fourth largest country by total area. Governed by the Communist Party of China, the state exercises jurisdiction over 22 provinces, five autonomous regions, four direct-controlled municipalities, and the special administrative regions of Hong Kong and Macau."
+        "extract": "<p>China, officially the People's Republic of China (PRC), is a growing superpower that will one day rival the USA. It is a country the West loves to hate. Despite its poor human rights record and lack of freedom of speech, it has come a long way and still growing rapidly, lifting millions of people out of absolute poverty. The countries have knitted together small towns and cities with cutting edge high speed rail, mobilising millions of people everywhere to get jobs and start businesses.  While there are many tourist highlights like the Great Wall and the Forbidden City, much of China’s historic architecture has been deliberately destroyed in the rush to modernise. Many of landscape retain it's natural beauty such as the majestic mountains of Tibet and Guilin's magical scenic landscapes.  The ordinary people are mostly friendly and hospitable, just don't talk about politics.  </p><p>Chinese cuisine is incredibly diverse. It is not like your Chicken Chow Mien at your local Chinese takeaway. These regional cuisines are the Eight Great Traditions. Cantonese cuisine is among them which is more popular in Chinatowns in USA and Europe. The other seven are Sichuan, Anhui, Shandong, Fujian, Jiangsu, Hunan and Zhejiang. Each one is well known for its distinct style and flavours. </p>"
     },
     "CIV": {
         "country": "Côte d'Ivoire",
@@ -545,7 +545,7 @@
     },
     "GBR": {
         "country": "UK",
-        "extract": "The United Kingdom of Great Britain and Northern Ireland is a sovereign country located off the north-western coast of the European mainland. The United Kingdom includes the island of Great Britain, the north-eastern part of the island of Ireland, and many smaller islands. Northern Ireland is the only part of the United Kingdom that shares a land border with another sovereign state, the Republic of Ireland. Apart from this land border, the United Kingdom is surrounded by the Atlantic Ocean, with the North Sea to the east, the English Channel to the south and the Celtic Sea to the south-west, giving it the 12th-longest coastline in the world. The Irish Sea separates Great Britain and Ireland."
+        "extract": "<p>The food is not bad as they say. It's good, but not great. Arguably London is the food capital of UK. It is multicultural city so they have a lot of top notch food from around the world. Don't expect to find many authentic Japanese in smaller towns and cities up north. Speaking about the north, there is so-called North-South divide and you'll be forgiven to think London is like a different country to the rest of UK. </p><p>Of course London is a must-visit, it's like an amusement park. They also have the best art scene, public transport, food. Even a lot of museums are free. Outside of London, you can miss the crowds and finally breath fresh air. Immerse yourself in the rich and deep history of the British towns and cities.  There's loads to see and lots to do.  From the Cornish coastlines, national parks in Snowdonia, the Lake District, seaside towns in Whitby to the Isle of Skye and Scottish Highlands. </p><p>Don't miss cities like Newcastle and Durham. The north east of England is underrated. </p>Just have a good time, while you're here. The Brits don't bite. </p><p> By the way, don't mention Brexit to anyone or else they start ranting. </p>"
     },
     "GEO": {
         "country": "Georgia",
@@ -829,7 +829,7 @@
     },
     "USA": {
         "country": "United States",
-        "extract": "The United States of America (USA), commonly known as the United States or America, is a country comprising 50 states, a federal district, five major self-governing territories, and various possessions. At 3.8 million square miles, the United States is the world's third or fourth largest country by total area and is slightly smaller than the entire continent of Europe. With a population of over 323 million people, the U.S. is the third most populous country. The capital is Washington, D.C., and the most populous city is New York City. Most of the country is located contiguously in North America between Canada and Mexico."
+        "extract": "Caution when travelling to this country: Trump is still president."
     },
     "TTO": {
         "country": "Trinidad and Tobago",
